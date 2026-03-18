@@ -75,15 +75,33 @@
 							<h3>Fraud Detection and Network Forensics</h3>
 							<p class="project-meta">Python | Statistical Modelling | Network Analysis</p>
 							<p>
-								Building a fraud detection and transaction network forensics project focused on
-								identifying suspicious
-								financial activity through statistical modelling and graph-based analysis. The project
-								treats transactions
-								as interconnected systems rather than isolated events, with the aim of detecting
-								anomalous patterns,
-								coordinated behaviour, and high-risk entities using probabilistic methods, network
-								structure, and
-								behavioural signals.
+								Building a fraud detection and transaction network forensics system using the Elliptic
+								Bitcoin dataset, which contains labelled transaction data (licit vs illicit) along with
+								engineered temporal and structural features. The dataset is modelled as a directed
+								transaction graph, where nodes represent entities and edges represent transfers,
+								allowing analysis of how funds propagate through the network over time.
+
+								The project combines statistical modelling and network analysis to identify suspicious
+								behaviour at both the node and subgraph level. Using Python with libraries such as
+								pandas and NumPy for data handling, scikit-learn for classification models, and NetworkX
+								for graph construction and analysis, the work focuses on detecting anomalous transaction
+								patterns, clustering behaviour, and structural signatures associated with illicit
+								activity.
+
+								Key objectives include:
+								Identifying high-risk nodes using supervised models trained on known illicit
+								transactions.
+								Detecting anomalous patterns through feature distributions, temporal shifts, and network
+								centrality measures.
+								Analysing transaction flows to uncover coordinated behaviour, layering patterns, and
+								potential laundering structures.
+								Exploring how fraud manifests within local neighbourhoods of the graph rather than
+								isolated transactions.
+								The expectation is that fraudulent activity will not appear as random noise but as
+								structured behaviour within the network - such as tightly connected clusters, unusual
+								flow patterns, or nodes with disproportionate influence or connectivity. The project
+								aims to bridge statistical inference with graph-based reasoning to better understand how
+								illicit financial behaviour emerges and propagates in complex systems.
 							</p>
 							<!-- <a href="YOUR_NOTEBOOK_OR_PROJECT_LINK" class="project-link" target="_blank">See more</a> -->
 						</div>
@@ -94,16 +112,36 @@
 							<img src="images/where2-logo.png" alt="where2 app logo" />
 						</div> -->
 						<div class="project-content">
-							<h3>where2 App</h3>
+							<h3>where2 App (Co-Founder & Developer)</h3>
 							<p class="project-meta">React Native | Backend Services | Mobile Development</p>
 							<p>
-								Co-developing where2, a social itinerary and messaging platform designed to help groups
-								organise plans
-								more easily. My work focuses on the mobile application and backend services, including
-								user flows,
-								authentication, and features that support shared planning, messaging, and coordination
-								across group-based
-								activities.
+								Co-founded and co-developing where2, a mobile application designed to help groups
+								organise plans through shared itineraries, messaging, and coordinated decision-making.
+								The project spans the full product lifecycle, from initial concept and validation
+								through to system design, development, and product positioning.
+
+								Designed user flows and interactive prototypes in Figma, focusing on how users
+								create plans, invite others, and coordinate activities in a shared environment. These
+								prototypes were iterated and translated into a React Native mobile application, with
+								emphasis on usability, clarity of interaction, and smooth group coordination.
+
+								On the backend, architected and implemented core services using Supabase, including
+								database schema design for users, plans, locations, and social relationships. This
+								involved structuring relational tables, managing authentication and user identity, and
+								building services for key functionality such as user management, following systems, and
+								location-based planning. The system supports real-time updates, messaging, and
+								synchronisation across multiple users within shared plans.
+
+								Beyond development, responsible for product direction and early-stage execution,
+								including creating pitch materials, producing demo videos, and communicating the product
+								to potential users and investors. This includes framing the problem space, demonstrating
+								functionality, and iterating on the product narrative.
+
+								The project is focused on building a practical, scalable system that addresses
+								coordination challenges in group planning, combining structured itineraries with social
+								interaction. Emphasis is placed on both technical implementation and product viability,
+								reflecting the responsibilities of building and positioning a startup from the ground
+								up.
 							</p>
 							<!-- <a href="YOUR_WHERE2_LINK" class="project-link" target="_blank">See more</a> -->
 						</div>
@@ -117,18 +155,139 @@
 							<h3>Crash Data Analysis</h3>
 							<p class="project-meta">Python | Data Analysis | Visualisation</p>
 							<p>
-								Analysed traffic incident data to identify patterns and contributing factors associated
-								with road crashes.
-								The project involved cleaning and exploring structured datasets, examining relationships
-								between variables,
-								and producing visual and statistical summaries to better understand how environmental,
-								behavioural, and
-								situational factors may influence accident risk.
+								Building a statistical risk modelling framework to analyse accident severity under
+								varying environmental and road conditions, using a structured dataset containing
+								features such as lighting, speed limits, road type, intersection design, and time of
+								day. The project treated accident severity as a probabilistic outcome rather than a
+								deterministic label, with the aim of quantifying how different factors and their
+								interactions contributed to elevated risk.
+
+								The analysis combined statistical inference with predictive modelling to identify and
+								interpret key drivers of severe accidents. Using Python with libraries such as pandas
+								and NumPy for data handling, statsmodels for statistical modelling, and scikit-learn for
+								machine learning, the project focused on estimating conditional probabilities of severe
+								outcomes, testing for significant differences across conditions, and evaluating how risk
+								varied across different combinations of features.
+
+								Key components included:
+								Developing logistic and multinomial regression models to estimate the probability of
+								severe accidents, with coefficient interpretation used to quantify the effect size of
+								variables such as lighting conditions and road type.
+								Conducting hypothesis testing and distributional analysis to assess whether observed
+								differences in accident severity across conditions were statistically significant and
+								practically meaningful.
+								Analysing interaction effects between variables (e.g. speed and road type, lighting and
+								time of day) to capture non-linear and context-dependent risk patterns.
+								Constructing a risk scoring framework to rank high-risk scenarios and identify
+								conditions under which severe accidents were disproportionately likely.
+								Evaluating model performance using metrics such as F1 score and considering trade-offs
+								between predictive accuracy and interpretability in a policy-relevant context.
+
+								The project emphasised translating statistical outputs into interpretable risk insights,
+								identifying scenarios with elevated expected severity and highlighting potential
+								intervention points. The objective was not only to predict accident outcomes, but to
+								understand how combinations of environmental and structural factors contributed to
+								systemic risk in road safety.
 							</p>
 							<!-- <a href="YOUR_CRASH_PROJECT_LINK" class="project-link" target="_blank">See more</a> -->
 						</div>
 					</article>
 
+					<article class="project-card">
+						<!-- <div class="project-image">
+							<img src="images/where2-logo.png" alt="where2 app logo" />
+						</div> -->
+						<div class="project-content">
+							<h3>Flood Simulation</h3>
+							<p class="project-meta">QGIS | Flood Modelling | Spatial Analysis</p>
+							<p>
+								Developed a geospatial flood modelling and risk assessment framework to analyse
+								inundation patterns and evaluate mitigation strategies across flood-prone regions,
+								including areas in Queensland and St Kilda. The project used GIS-based simulation to
+								model flood behaviour under varying severity scenarios, treating flooding as a spatial
+								system influenced by terrain, water flow, and environmental conditions rather than a
+								static event.
+
+								Using tools such as ArcGIS, QGIS, GRASS GIS, and raster-based modelling techniques, the
+								analysis simulated flood propagation across different landscapes and assessed how water
+								levels and flow paths responded to structural interventions. Mitigation strategies
+								including levees, temporary flood barriers, and sandbagging were incorporated into the
+								model as physical constraints, allowing evaluation of their impact on flood extent,
+								depth, and affected infrastructure.
+
+								Key components included:
+								Constructing raster-based flood models to simulate inundation under different severity
+								levels and environmental conditions.
+								Incorporating intervention scenarios by modifying terrain and flow constraints to
+								represent flood protection measures.
+								Analysing spatial impact in terms of affected regions, infrastructure exposure, and
+								changes in flood extent under each mitigation strategy.
+								Conducting a long-term cost analysis over a 50-year horizon, incorporating factors such
+								as infrastructure durability, labour requirements, deployment logistics, and estimated
+								damage to buildings and interiors.
+								Accounting for worsening flood conditions under climate change scenarios to evaluate
+								robustness of different mitigation approaches over time.
+
+								The project integrated spatial modelling with economic reasoning to identify optimal
+								flood mitigation strategies, providing recommendations on both the type and placement of
+								interventions based on simulated outcomes and cost-benefit considerations. The objective
+								was not only to model flood behaviour, but to support decision-making under uncertainty
+								in a real-world risk management context.
+							</p>
+							<!-- <a href="YOUR_WHERE2_LINK" class="project-link" target="_blank">See more</a> -->
+						</div>
+					</article>
+
+					<article class="project-card">
+						<!-- <div class="project-image">
+		<img src="images/biomass.jpg" alt="CSIRO Image2Biomass project image" />
+	</div> -->
+						<div class="project-content">
+							<h3>CSIRO Image2Biomass Datathon</h3>
+							<p class="project-meta">Python | PyTorch | Computer Vision | Deep Learning</p>
+							<p>
+								Developed an end-to-end image-based prediction pipeline to estimate pasture biomass from
+								high-resolution aerial imagery as part of the CSIRO Image2Biomass datathon. The project
+								focused on translating large, unstructured visual data into quantitative environmental
+								measurements, modelling biomass as a regression problem across multiple targets
+								including
+								green, dry, and dead plant matter.
+
+								Raw wide-format images were preprocessed by splitting into square views and applying
+								standardisation and normalisation, aligning the data with the input requirements of
+								modern
+								vision models and ensuring consistent feature extraction. A self-supervised Vision
+								Transformer (DINO) was used as a feature extractor, with representations adapted for
+								multi-output regression using PyTorch and optimised via mean squared error loss.
+
+								Key components included:
+								Designing a preprocessing pipeline to transform large aerial images into
+								model-compatible
+								inputs while preserving spatial and textural information relevant to biomass estimation.
+								Training multiple regression models on different data splits and combining predictions
+								using
+								weighted averaging to improve robustness and reduce overfitting.
+								Implementing cross-validation to ensure generalisation under limited labelled data and
+								evaluating model performance across multiple biomass targets.
+								Optimising GPU usage through mixed-precision computation, controlled batch sizing,
+								release
+								of intermediate tensors, and disabling gradient tracking during inference to manage
+								memory
+								constraints efficiently.
+								Applying post-processing adjustments to correct systematic prediction bias and improve
+								alignment with observed biomass distributions.
+
+								The project emphasised building a reliable prediction system under real-world
+								constraints,
+								balancing model performance, computational efficiency, and robustness to noisy data.
+								Final
+								outputs were structured for scientific evaluation and operational use, reflecting
+								practical
+								requirements in environmental monitoring and agricultural analytics.
+							</p>
+							<!-- <a href="YOUR_KAGGLE_NOTEBOOK_LINK" class="project-link" target="_blank">See more</a> -->
+						</div>
+					</article>
 				</div>
 			</section>
 
