@@ -3973,10 +3973,9 @@ body.is-preload #header.alt .logo {
 	margin-bottom: 0.2em;
 }
 
-#projects h3 {
-	font-weight: 700;
-	color: #1f1f1f;
-	margin-bottom: 0.4em;
+#projects .project-content h3 {
+	font-weight: 700 !important;
+	color: #1f1f1f !important;
 }
 
 /* Optional: cleaner spacing between project cards */
