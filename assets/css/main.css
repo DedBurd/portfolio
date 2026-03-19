@@ -3938,49 +3938,46 @@ body.is-preload #header.alt .logo {
 
 /* Below this are custom changes that I made myself due to being unsatisfied with the default styling. */
 
+/* =========================
+   PROJECTS SECTION FIXES
+   ========================= */
+
 #projects header.major {
-	margin-bottom: 1.5em;
+	margin-bottom: 1em !important;
 }
 
-#projects .project-list {
-	display: flex;
-	flex-direction: column;
-	gap: 2.25em;
+#projects h3 {
+	margin-bottom: 0.6em;
 }
 
-#projects .project-card {
-	padding: 0;
-	border: 0;
-	background: transparent;
-	box-shadow: none;
-}
-
-#projects .project-content h3 {
-	margin: 0 0 0.45em 0;
+#projects p {
+	margin-bottom: 0.5em;
+	line-height: 1.6;
 }
 
 #projects .project-meta {
-	margin: 0 0 1em 0;
-	font-size: 0.95em;
-	color: #7a7a7a;
+	margin-bottom: 0.6em;
+	font-size: 0.9em;
+	opacity: 0.8;
 }
 
-#projects .project-content p {
-	margin: 0 0 0.75em 0;
+#projects ul {
+	margin-top: 0.3em;
+	margin-bottom: 0.6em;
+	padding-left: 1.2em;
 }
 
-#projects .project-content ul {
-	margin: 0 0 0.9em 1.25em;
-	padding-left: 0.75em;
-	list-style: disc;
+#projects ul li {
+	margin-bottom: 0.3em;
 }
 
-#projects .project-content li {
-	margin-bottom: 0.35em;
-	padding-left: 0.15em;
+#projects p strong {
+	display: block;
+	margin-top: 0.6em;
+	margin-bottom: 0.2em;
 }
 
-#projects .project-content ul:last-child,
-#projects .project-content p:last-child {
-	margin-bottom: 0;
+/* Optional: cleaner spacing between project cards */
+#projects .project-card {
+	margin-bottom: 2em;
 }
