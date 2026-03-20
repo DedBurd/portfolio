@@ -122,11 +122,68 @@
 
 					<article class="project-card">
 						<div class="project-content">
+							<h3>Quantum Computing in Bioinformatics (Internship)</h3>
+							<p class="project-meta">Qiskit | Optimisation | Scientific Computing | Research</p>
+
+							<p>
+								Completed a research internship at the Walter and Eliza Hall Institute of Medical
+								Research,
+								focusing on improving the usability and correctness of a quantum protein-folding model
+								implemented in Qiskit. The work addressed technical and structural issues in a codebase
+								handed down across multiple interns, where poor documentation and incorrect
+								parameterisation
+								limited practical use of the model.
+							</p>
+
+							<p>
+								The onboarding process was redesigned by replacing an extensive set of academic readings
+								with a structured glossary and streamlined documentation, allowing new contributors to
+								understand key concepts and begin working with the model significantly faster. In
+								parallel,
+								the implementation was refactored through detailed inline commentary, clarifying
+								theoretical
+								background, modelling assumptions, and execution flow directly within the code.
+							</p>
+
+							<p><strong>Key components included:</strong></p>
+							<ul>
+								<li>Designing a simplified onboarding pathway by consolidating essential concepts into a
+									concise reference document, reducing reliance on external academic sources</li>
+								<li>Refactoring a Jupyter notebook implementation with structured inline documentation
+									to improve readability and accessibility for users without prior quantum computing
+									experience</li>
+								<li>Diagnosing failures in the Hamiltonian formulation, where constraint penalties (e.g.
+									backtracking and long-range folding) were incorrectly scaled, preventing meaningful
+									interaction between amino acids</li>
+								<li>Rescaling constraint terms to restore valid interaction dynamics and enable the
+									optimiser to explore physically meaningful folding configurations</li>
+								<li>Replacing gradient-based optimisation with a non-derivative method better suited to
+									the discrete and non-linear structure of the problem space</li>
+								<li>Testing the corrected model on simulated configurations to confirm functional
+									behaviour while identifying remaining computational inefficiencies</li>
+								<li>Migrating the project from a Google Drive notebook to a structured GitHub
+									repository, introducing version control and improving reproducibility</li>
+								<li>Producing a comprehensive technical report and handover documentation to enable
+									future contributors to quickly understand and extend the model</li>
+							</ul>
+
+							<p>
+								The project emphasised practical problem-solving in complex optimisation systems,
+								combining
+								debugging, model correction, and documentation improvements to transform an unusable
+								research
+								prototype into a functional and maintainable framework for future work.
+							</p>
+						</div>
+					</article>
+
+					<article class="project-card">
+						<div class="project-content">
 							<h3>Where2 (Co-Founder &amp; Developer)</h3>
 							<p class="project-meta">React Native | Backend Systems | Supabase | Mobile Development</p>
 
 							<p>
-								Co-founded and co-developing where2, a mobile application designed to support group
+								Co-founded and co-developing Where2, a mobile application designed to support group
 								coordination through shared itineraries, messaging, and collaborative decision-making.
 								The project spans the full product lifecycle, from initial concept and validation
 								through
@@ -174,50 +231,59 @@
 						</div>
 					</article>
 
+					
 					<article class="project-card">
 						<div class="project-content">
-							<h3>Crash Data Analysis</h3>
-							<p class="project-meta">Python | Data Analysis | Visualisation</p>
+							<h3>CSIRO Image2Biomass Datathon</h3>
+							<p class="project-meta">Python | PyTorch | Computer Vision | Deep Learning</p>
 
 							<p>
-								Analysed a structured traffic incident dataset to explore how environmental and road
-								conditions relate
-								to accident severity. The dataset included features such as lighting conditions, speed
-								limits, road
-								type, intersection design, and time of day, allowing examination of how different
-								contextual factors
-								correlate with more severe outcomes.
+								Developed an end-to-end image-based prediction pipeline to estimate pasture biomass from
+								high-resolution aerial imagery as part of the CSIRO Image2Biomass datathon. The project
+								focused on
+								translating large, unstructured visual data into quantitative environmental
+								measurements, modelling
+								biomass as a regression problem across multiple targets including green, dry, and dead
+								plant matter.
 							</p>
 
 							<p>
-								The project focused on exploratory data analysis rather than predictive modelling, using
-								Python with
-								libraries such as pandas and NumPy for data manipulation, and matplotlib and seaborn for
-								visualisation. This involved cleaning and structuring the dataset, examining
-								distributions, and
-								generating comparative visualisations to identify patterns across different conditions.
+								Raw wide-format images were preprocessed by splitting into square views and applying
+								standardisation
+								and normalisation, aligning the data with the input requirements of modern vision models
+								and ensuring
+								consistent feature extraction. A self-supervised Vision Transformer (DINO) was used as a
+								feature
+								extractor, with representations adapted for multi-output regression using PyTorch and
+								optimised via
+								mean squared error loss.
 							</p>
 
 							<p><strong>Key components included:</strong></p>
 							<ul>
-								<li>Exploring the distribution of accident severity across variables such as lighting,
-									speed limits, and road type</li>
-								<li>Creating visual comparisons, such as bar charts and grouped plots, to identify
-									differences in severity under varying conditions</li>
-								<li>Analysing how combinations of features, such as time of day and lighting conditions,
-									relate to changes in observed outcomes</li>
-								<li>Identifying patterns and trends in the data that suggest higher-risk scenarios or
-									environments</li>
+								<li>Designing a preprocessing pipeline to transform large aerial images into
+									model-compatible inputs while preserving spatial and textural information relevant
+									to biomass estimation</li>
+								<li>Training multiple regression models on different data splits and combining
+									predictions using weighted averaging to improve robustness and reduce overfitting
+								</li>
+								<li>Implementing cross-validation to ensure generalisation under limited labelled data
+									and evaluating model performance across multiple biomass targets</li>
+								<li>Optimising GPU usage through mixed-precision computation, controlled batch sizing,
+									release of intermediate tensors, and disabling gradient tracking during inference to
+									manage memory constraints efficiently</li>
+								<li>Applying post-processing adjustments to correct systematic prediction bias and
+									improve alignment with observed biomass distributions</li>
 							</ul>
 
 							<p>
-								The project emphasised interpreting visual and descriptive patterns in the data to
-								understand how
-								accident severity varies across different contexts. Rather than building predictive
-								models, the focus
-								was on extracting meaningful insights from the data and communicating those findings
-								clearly through
-								visual analysis.
+								The project emphasised building a reliable prediction system under real-world
+								constraints, balancing
+								model performance, computational efficiency, and robustness to noisy data. Final outputs
+								were
+								structured for scientific evaluation and operational use, reflecting practical
+								requirements in
+								environmental monitoring and agricultural analytics.
 							</p>
 						</div>
 					</article>
@@ -281,113 +347,48 @@
 
 					<article class="project-card">
 						<div class="project-content">
-							<h3>CSIRO Image2Biomass Datathon</h3>
-							<p class="project-meta">Python | PyTorch | Computer Vision | Deep Learning</p>
+							<h3>Crash Data Analysis</h3>
+							<p class="project-meta">Python | Data Analysis | Visualisation</p>
 
 							<p>
-								Developed an end-to-end image-based prediction pipeline to estimate pasture biomass from
-								high-resolution aerial imagery as part of the CSIRO Image2Biomass datathon. The project
-								focused on
-								translating large, unstructured visual data into quantitative environmental
-								measurements, modelling
-								biomass as a regression problem across multiple targets including green, dry, and dead
-								plant matter.
+								Analysed a structured traffic incident dataset to explore how environmental and road
+								conditions relate
+								to accident severity. The dataset included features such as lighting conditions, speed
+								limits, road
+								type, intersection design, and time of day, allowing examination of how different
+								contextual factors
+								correlate with more severe outcomes.
 							</p>
 
 							<p>
-								Raw wide-format images were preprocessed by splitting into square views and applying
-								standardisation
-								and normalisation, aligning the data with the input requirements of modern vision models
-								and ensuring
-								consistent feature extraction. A self-supervised Vision Transformer (DINO) was used as a
-								feature
-								extractor, with representations adapted for multi-output regression using PyTorch and
-								optimised via
-								mean squared error loss.
+								The project focused on exploratory data analysis rather than predictive modelling, using
+								Python with
+								libraries such as pandas and NumPy for data manipulation, and matplotlib and seaborn for
+								visualisation. This involved cleaning and structuring the dataset, examining
+								distributions, and
+								generating comparative visualisations to identify patterns across different conditions.
 							</p>
 
 							<p><strong>Key components included:</strong></p>
 							<ul>
-								<li>Designing a preprocessing pipeline to transform large aerial images into
-									model-compatible inputs while preserving spatial and textural information relevant
-									to biomass estimation</li>
-								<li>Training multiple regression models on different data splits and combining
-									predictions using weighted averaging to improve robustness and reduce overfitting
-								</li>
-								<li>Implementing cross-validation to ensure generalisation under limited labelled data
-									and evaluating model performance across multiple biomass targets</li>
-								<li>Optimising GPU usage through mixed-precision computation, controlled batch sizing,
-									release of intermediate tensors, and disabling gradient tracking during inference to
-									manage memory constraints efficiently</li>
-								<li>Applying post-processing adjustments to correct systematic prediction bias and
-									improve alignment with observed biomass distributions</li>
+								<li>Exploring the distribution of accident severity across variables such as lighting,
+									speed limits, and road type</li>
+								<li>Creating visual comparisons, such as bar charts and grouped plots, to identify
+									differences in severity under varying conditions</li>
+								<li>Analysing how combinations of features, such as time of day and lighting conditions,
+									relate to changes in observed outcomes</li>
+								<li>Identifying patterns and trends in the data that suggest higher-risk scenarios or
+									environments</li>
 							</ul>
 
 							<p>
-								The project emphasised building a reliable prediction system under real-world
-								constraints, balancing
-								model performance, computational efficiency, and robustness to noisy data. Final outputs
-								were
-								structured for scientific evaluation and operational use, reflecting practical
-								requirements in
-								environmental monitoring and agricultural analytics.
-							</p>
-						</div>
-					</article>
-
-					<article class="project-card">
-						<div class="project-content">
-							<h3>Quantum Computing in Bioinformatics (Internship)</h3>
-							<p class="project-meta">Qiskit | Optimisation | Scientific Computing | Research</p>
-
-							<p>
-								Completed a research internship at the Walter and Eliza Hall Institute of Medical
-								Research,
-								focusing on improving the usability and correctness of a quantum protein-folding model
-								implemented in Qiskit. The work addressed technical and structural issues in a codebase
-								handed down across multiple interns, where poor documentation and incorrect
-								parameterisation
-								limited practical use of the model.
-							</p>
-
-							<p>
-								The onboarding process was redesigned by replacing an extensive set of academic readings
-								with a structured glossary and streamlined documentation, allowing new contributors to
-								understand key concepts and begin working with the model significantly faster. In
-								parallel,
-								the implementation was refactored through detailed inline commentary, clarifying
-								theoretical
-								background, modelling assumptions, and execution flow directly within the code.
-							</p>
-
-							<p><strong>Key components included:</strong></p>
-							<ul>
-								<li>Designing a simplified onboarding pathway by consolidating essential concepts into a
-									concise reference document, reducing reliance on external academic sources</li>
-								<li>Refactoring a Jupyter notebook implementation with structured inline documentation
-									to improve readability and accessibility for users without prior quantum computing
-									experience</li>
-								<li>Diagnosing failures in the Hamiltonian formulation, where constraint penalties (e.g.
-									backtracking and long-range folding) were incorrectly scaled, preventing meaningful
-									interaction between amino acids</li>
-								<li>Rescaling constraint terms to restore valid interaction dynamics and enable the
-									optimiser to explore physically meaningful folding configurations</li>
-								<li>Replacing gradient-based optimisation with a non-derivative method better suited to
-									the discrete and non-linear structure of the problem space</li>
-								<li>Testing the corrected model on simulated configurations to confirm functional
-									behaviour while identifying remaining computational inefficiencies</li>
-								<li>Migrating the project from a Google Drive notebook to a structured GitHub
-									repository, introducing version control and improving reproducibility</li>
-								<li>Producing a comprehensive technical report and handover documentation to enable
-									future contributors to quickly understand and extend the model</li>
-							</ul>
-
-							<p>
-								The project emphasised practical problem-solving in complex optimisation systems,
-								combining
-								debugging, model correction, and documentation improvements to transform an unusable
-								research
-								prototype into a functional and maintainable framework for future work.
+								The project emphasised interpreting visual and descriptive patterns in the data to
+								understand how
+								accident severity varies across different contexts. Rather than building predictive
+								models, the focus
+								was on extracting meaningful insights from the data and communicating those findings
+								clearly through
+								visual analysis.
 							</p>
 						</div>
 					</article>
