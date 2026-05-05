@@ -66,6 +66,93 @@
 
 				<div class="project-list">
 
+
+					<article class="project-card">
+						<div class="project-content">
+							<h3>Credit Risk Under Regime Change</h3>
+							<p class="project-meta">Python | Statistical Modelling | Time Series Evaluation</p>
+					
+							<p>
+								This project investigates how credit risk models behave when the underlying
+								environment changes, focusing on the period surrounding the 2008 financial crisis.
+								Using loan-level data from <strong>:contentReference[oaicite:0]{index=0}</strong> (2007–2015),
+								the objective is not only to predict default, but to understand how model outputs
+								degrade when relationships between borrower characteristics and outcomes shift
+								over time.
+							</p>
+					
+							<p>
+								The dataset includes borrower and loan attributes such as credit grade, interest rate,
+								debt-to-income ratio, income, loan amount, and term. These variables reflect how risk
+								is assessed and priced within the system, linking model predictions to decisions around
+								which loans appear attractive and which represent elevated exposure.
+							</p>
+					
+							<p>
+								Two model classes were implemented and compared. Logistic regression was used in both
+								regularised and unregularised forms to capture stable, aggregate relationships between
+								features and default risk. Random forest models were used to capture non-linear
+								interactions and local structure in the data, with hyperparameters tuned using Bayesian
+								optimisation and validated through learning curves.
+							</p>
+					
+							<p>
+								Evaluation was conducted using AUC-ROC, accuracy, and calibration analysis. Rather than
+								relying on a static train-test split, a rolling window framework was used, where models
+								are trained on recent historical data (approximately 30 days) and evaluated on forward
+								horizons of one to five years. This allows performance to be tracked as conditions evolve.
+							</p>
+					
+							<p><strong>Key components include:</strong></p>
+							<ul>
+								<li>Designing a time-aware evaluation framework to assess model reliability under distribution shift</li>
+								<li>Comparing linear and tree-based models in terms of predictive performance, stability, and calibration</li>
+								<li>Evaluating how predicted default probabilities align with realised outcomes over time</li>
+								<li>Tracking shifts in feature importance to identify changing drivers of risk</li>
+								<li>Assessing the tradeoff between model flexibility and robustness in non-stationary environments</li>
+							</ul>
+					
+							<p>
+								Results show a clear divergence in model behaviour. Random forests achieve strong
+								performance in stable, pre-crisis conditions, capturing complex interactions within
+								the data. However, performance deteriorates significantly following the 2008 shift,
+								with reduced generalisation and instability in predicted probabilities. Logistic
+								regression exhibits lower peak performance but maintains more consistent behaviour,
+								with smaller degradation and more reliable calibration.
+							</p>
+					
+							<p>
+								This distinction is important because model outputs are often used as signals to guide
+								decisions. A model that performs well historically but fails under changing conditions
+								can produce misleading signals, leading to overconfidence in patterns that no longer
+								hold. In contrast, a more stable model may provide weaker signals in normal conditions,
+								but remain usable when the environment shifts.
+							</p>
+					
+							<p>
+								The difference arises from how each model represents structure. Tree-based models learn
+								fine-grained partitions tied to historical patterns, which become misaligned when the
+								regime changes. Logistic regression imposes a global structure, capturing broader
+								relationships such as the link between leverage, pricing, and default risk, making it
+								more robust to shifts in underlying conditions.
+							</p>
+					
+							<p>
+								Feature importance analysis further shows that key variables such as loan grade and
+								interest rate change in relevance over time. These features are themselves influenced by
+								the environment, meaning that the mapping from inputs to outcomes evolves, limiting the
+								effectiveness of models trained on past data.
+							</p>
+					
+							<p>
+								The project highlights a central challenge in modelling real-world systems: predictive
+								performance depends not only on model choice, but on the stability of the environment.
+								In settings where relationships shift, robustness and consistency can matter more than
+								maximising accuracy under historical conditions.
+							</p>
+						</div>
+					</article>
+
 					<article class="project-card">
 						<div class="project-content">
 							<h3>Fraud Detection and Network Forensics (Ongoing)</h3>
@@ -341,54 +428,6 @@
 								flood
 								behaviour, but to support decision-making under uncertainty in a real-world risk
 								management context.
-							</p>
-						</div>
-					</article>
-
-					<article class="project-card">
-						<div class="project-content">
-							<h3>Crash Data Analysis</h3>
-							<p class="project-meta">Python | Data Analysis | Visualisation</p>
-
-							<p>
-								Analysed a structured traffic incident dataset to explore how environmental and road
-								conditions relate
-								to accident severity. The dataset included features such as lighting conditions, speed
-								limits, road
-								type, intersection design, and time of day, allowing examination of how different
-								contextual factors
-								correlate with more severe outcomes.
-							</p>
-
-							<p>
-								The project focused on exploratory data analysis rather than predictive modelling, using
-								Python with
-								libraries such as pandas and NumPy for data manipulation, and matplotlib and seaborn for
-								visualisation. This involved cleaning and structuring the dataset, examining
-								distributions, and
-								generating comparative visualisations to identify patterns across different conditions.
-							</p>
-
-							<p><strong>Key components included:</strong></p>
-							<ul>
-								<li>Exploring the distribution of accident severity across variables such as lighting,
-									speed limits, and road type</li>
-								<li>Creating visual comparisons, such as bar charts and grouped plots, to identify
-									differences in severity under varying conditions</li>
-								<li>Analysing how combinations of features, such as time of day and lighting conditions,
-									relate to changes in observed outcomes</li>
-								<li>Identifying patterns and trends in the data that suggest higher-risk scenarios or
-									environments</li>
-							</ul>
-
-							<p>
-								The project emphasised interpreting visual and descriptive patterns in the data to
-								understand how
-								accident severity varies across different contexts. Rather than building predictive
-								models, the focus
-								was on extracting meaningful insights from the data and communicating those findings
-								clearly through
-								visual analysis.
 							</p>
 						</div>
 					</article>
