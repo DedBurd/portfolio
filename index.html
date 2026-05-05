@@ -20,7 +20,7 @@
 			<!-- <span class="logo"><img src="images/logo.svg" alt="" /></span> -->
 			<h1>Sam Bajracharya</h1>
 			<p>Data Science - Systems, Risk and Behaviour<br />
-				Investigating systems, behaviour, and failure points</p>
+				Understanding how models and signals behave under change</p>
 		</header>
 
 		<!-- Nav -->
@@ -45,13 +45,21 @@
 						</header>
 						<p>
 							I am a Data Science student at the University of Melbourne with a focus on risk analysis,
-							fraud detection, and behavioural analytics. My work centres on understanding how systems
-							fail, how data can reveal manipulation, and how complex environments can be modelled and
-							analysed.
+							fraud detection, and behavioural analytics. My work focuses on understanding how systems
+							fail, how systems can become unreliable, and how complex environments can be modelled under
+							changing conditions.
 						</p>
 						<p>
-							I am particularly interested in financial crime, cybersecurity, and social systems where
-							individual behaviour aggregates into measurable patterns.
+						<p>
+							I am particularly interested in financial risk, fraud, and systems where individual
+							behaviour aggregates into measurable patterns. My focus is on understanding how these
+							patterns change over time and how reliable they are when conditions shift.
+						</p>
+						<p>
+							Across these projects, a consistent focus is understanding how models, signals, and systems
+							behave when underlying conditions change, and how this affects the reliability of decisions
+							based on them.
+						</p>
 						</p>
 					</div>
 					<!-- <span class="image"><img src="images/pic01.jpg" alt="" /></span> -->
@@ -71,23 +79,23 @@
 						<div class="project-content">
 							<h3>Credit Risk Under Regime Change</h3>
 							<p class="project-meta">Python | Statistical Modelling | Time Series Evaluation</p>
-					
+
 							<p>
 								This project investigates how credit risk models behave when the underlying
 								environment changes, focusing on the period surrounding the 2008 financial crisis.
-								Using loan-level data from <strong>:contentReference[oaicite:0]{index=0}</strong> (2007–2015),
+								Using loan-level data from <strong>LendingClub</strong> (2007–2015 loan dataset),
 								the objective is not only to predict default, but to understand how model outputs
 								degrade when relationships between borrower characteristics and outcomes shift
 								over time.
 							</p>
-					
+
 							<p>
 								The dataset includes borrower and loan attributes such as credit grade, interest rate,
 								debt-to-income ratio, income, loan amount, and term. These variables reflect how risk
 								is assessed and priced within the system, linking model predictions to decisions around
 								which loans appear attractive and which represent elevated exposure.
 							</p>
-					
+
 							<p>
 								Two model classes were implemented and compared. Logistic regression was used in both
 								regularised and unregularised forms to capture stable, aggregate relationships between
@@ -95,32 +103,38 @@
 								interactions and local structure in the data, with hyperparameters tuned using Bayesian
 								optimisation and validated through learning curves.
 							</p>
-					
+
 							<p>
 								Evaluation was conducted using AUC-ROC, accuracy, and calibration analysis. Rather than
 								relying on a static train-test split, a rolling window framework was used, where models
 								are trained on recent historical data (approximately 30 days) and evaluated on forward
-								horizons of one to five years. This allows performance to be tracked as conditions evolve.
+								horizons of one to five years. This allows performance to be tracked as conditions
+								evolve.
 							</p>
-					
+
 							<p><strong>Key components include:</strong></p>
 							<ul>
-								<li>Designing a time-aware evaluation framework to assess model reliability under distribution shift</li>
-								<li>Comparing linear and tree-based models in terms of predictive performance, stability, and calibration</li>
-								<li>Evaluating how predicted default probabilities align with realised outcomes over time</li>
+								<li>Designing a time-aware evaluation framework to assess model reliability under
+									distribution shift</li>
+								<li>Comparing linear and tree-based models in terms of predictive performance,
+									stability, and calibration</li>
+								<li>Evaluating how predicted default probabilities align with realised outcomes over
+									time</li>
 								<li>Tracking shifts in feature importance to identify changing drivers of risk</li>
-								<li>Assessing the tradeoff between model flexibility and robustness in non-stationary environments</li>
+								<li>Assessing the tradeoff between model flexibility and robustness in non-stationary
+									environments</li>
 							</ul>
-					
+
 							<p>
 								Results show a clear divergence in model behaviour. Random forests achieve strong
 								performance in stable, pre-crisis conditions, capturing complex interactions within
-								the data. However, performance deteriorates significantly following the 2008 shift,
+								the data. However, performance deteriorates significantly, with reduced AUC and
+								instability in predicted probabilities following the 2008 shift,
 								with reduced generalisation and instability in predicted probabilities. Logistic
 								regression exhibits lower peak performance but maintains more consistent behaviour,
 								with smaller degradation and more reliable calibration.
 							</p>
-					
+
 							<p>
 								This distinction is important because model outputs are often used as signals to guide
 								decisions. A model that performs well historically but fails under changing conditions
@@ -128,7 +142,7 @@
 								hold. In contrast, a more stable model may provide weaker signals in normal conditions,
 								but remain usable when the environment shifts.
 							</p>
-					
+
 							<p>
 								The difference arises from how each model represents structure. Tree-based models learn
 								fine-grained partitions tied to historical patterns, which become misaligned when the
@@ -136,14 +150,14 @@
 								relationships such as the link between leverage, pricing, and default risk, making it
 								more robust to shifts in underlying conditions.
 							</p>
-					
+
 							<p>
 								Feature importance analysis further shows that key variables such as loan grade and
 								interest rate change in relevance over time. These features are themselves influenced by
 								the environment, meaning that the mapping from inputs to outcomes evolves, limiting the
 								effectiveness of models trained on past data.
 							</p>
-					
+
 							<p>
 								The project highlights a central challenge in modelling real-world systems: predictive
 								performance depends not only on model choice, but on the stability of the environment.
@@ -156,7 +170,7 @@
 					<article class="project-card">
 						<div class="project-content">
 							<h3>Fraud Detection and Network Forensics (Ongoing)</h3>
-							<p class="project-meta">Python | Statistical Modelling | Network Analysis</p>
+							<p class="project-meta">Python | Network Analysis | Behavioural Analytics</p>
 
 							<p>
 								Building a fraud detection and transaction network forensics system using the Elliptic
@@ -203,6 +217,20 @@
 								inference with
 								graph-based reasoning to better understand how illicit financial behaviour emerges and
 								propagates.
+							</p>
+
+							<p>
+								Preliminary analysis suggests that illicit activity is not uniformly distributed across
+								the network,
+								but instead appears in locally dense regions characterised by repeated interactions and
+								elevated
+								connectivity. Certain nodes exhibit disproportionately high centrality relative to their
+								transaction
+								volume, indicating potential intermediary roles in fund movement. Temporal patterns also
+								show bursts
+								of activity within short intervals, consistent with layering or rapid redistribution
+								behaviour rather
+								than organic transaction flow.
 							</p>
 						</div>
 					</article>
@@ -267,14 +295,14 @@
 					<article class="project-card">
 						<div class="project-content">
 							<h3>Where2 (Co-Founder &amp; Developer)</h3>
-							<p class="project-meta">React Native | Backend Systems | Supabase | Mobile Development</p>
+							<p class="project-meta">React Native | Distributed Systems | Real-Time State Management</p>
 
 							<p>
 								Co-founded and co-developing Where2, a mobile application designed to support group
 								coordination through shared itineraries, messaging, and collaborative decision-making.
-								The project spans the full product lifecycle, from initial concept and validation
-								through
-								to system design, implementation, and early-stage deployment.
+								The project originated within the Melbourne Entrepreneurial Centre startup program,
+								where I joined as the primary technical contributor, taking ownership of system design
+								and implementation as the concept progressed from early-stage idea to a working product.
 							</p>
 
 							<p>
@@ -283,6 +311,25 @@
 								are synchronised in real time across devices. The application is built in React Native,
 								with a backend architecture using Supabase to manage persistent state, authentication,
 								and real-time updates across distributed users.
+							</p>
+
+							<p>
+								The system has evolved into a multi-component application supporting user accounts,
+								following relationships, location-based planning, and real-time updates across shared
+								itineraries. Core functionality includes dynamic itinerary generation, map-based
+								visualisation of locations and posts, and automated handling of metadata such as update
+								timestamps and time zones. These components are integrated through a structured backend
+								architecture, with persistent storage and access control managed through relational
+								database design.
+							</p>
+
+							<p>
+								The central technical challenge in the system is maintaining consistency of shared state
+								across multiple users interacting concurrently. Actions such as editing plans, adding
+								locations, or sending messages must propagate in real time while preserving a coherent
+								view of the itinerary for all participants. This requires careful handling of
+								synchronisation, conflict resolution, and access control to ensure that updates remain
+								consistent under concurrent modification.
 							</p>
 
 							<p><strong>Key components included:</strong></p>
@@ -300,134 +347,103 @@
 							</ul>
 
 							<p>
-								Beyond engineering, responsible for product direction and early-stage execution,
-								including
-								developing pitch materials, producing demo videos, and communicating the product to
-								potential users and stakeholders. This involved framing the problem space, demonstrating
-								functionality, and iterating on product positioning.
-							</p>
-
-							<p>
-								The project focuses on building a scalable, real-time system for coordinating group
-								activity,
-								balancing technical implementation with product viability. Emphasis is placed on
-								managing
-								shared state across users, designing robust backend structures, and ensuring consistent
-								behaviour in a multi-user environment.
+								Development has moved from prototyping toward release, requiring a shift from feature
+								implementation to system reliability. This includes refining service architecture,
+								ensuring consistency of shared state across users, and validating that interactions
+								behave predictably under real usage. The focus is not only on building functionality,
+								but on delivering a system that remains stable as complexity and user interaction scale.
 							</p>
 						</div>
 					</article>
 
-					
+
 					<article class="project-card">
 						<div class="project-content">
 							<h3>CSIRO Image2Biomass Datathon</h3>
-							<p class="project-meta">Python | PyTorch | Computer Vision | Deep Learning</p>
+							<p class="project-meta">Python | Deep Learning | Prediction Under Limited Data</p>
 
 							<p>
-								Developed an end-to-end image-based prediction pipeline to estimate pasture biomass from
-								high-resolution aerial imagery as part of the CSIRO Image2Biomass datathon. The project
-								focused on
-								translating large, unstructured visual data into quantitative environmental
-								measurements, modelling
-								biomass as a regression problem across multiple targets including green, dry, and dead
-								plant matter.
+								Developed an end-to-end prediction pipeline to estimate pasture biomass from
+								high-resolution aerial imagery as part of the CSIRO Image2Biomass datathon.
+								The task involved translating large, unstructured visual data into quantitative
+								estimates across multiple targets, including green, dry, and dead plant matter.
 							</p>
 
 							<p>
-								Raw wide-format images were preprocessed by splitting into square views and applying
-								standardisation
-								and normalisation, aligning the data with the input requirements of modern vision models
-								and ensuring
-								consistent feature extraction. A self-supervised Vision Transformer (DINO) was used as a
-								feature
-								extractor, with representations adapted for multi-output regression using PyTorch and
-								optimised via
-								mean squared error loss.
+								The primary challenge was working under limited labelled data and high variability
+								in visual input. Images differed in scale, lighting, and spatial composition,
+								requiring careful preprocessing to preserve meaningful structure while ensuring
+								compatibility with model inputs.
+							</p>
+
+							<p>
+								A preprocessing pipeline was implemented to convert wide-format aerial images into
+								consistent square inputs, applying normalisation and standardisation to stabilise
+								feature extraction. A self-supervised Vision Transformer (DINO) was used as a feature
+								extractor, with representations adapted for multi-output regression using
+								<strong>PyTorch</strong> and optimised via mean squared error loss. This approach
+								leveraged pre-trained representations to improve performance under constrained data
+								conditions.
 							</p>
 
 							<p><strong>Key components included:</strong></p>
 							<ul>
-								<li>Designing a preprocessing pipeline to transform large aerial images into
-									model-compatible inputs while preserving spatial and textural information relevant
-									to biomass estimation</li>
-								<li>Training multiple regression models on different data splits and combining
-									predictions using weighted averaging to improve robustness and reduce overfitting
-								</li>
-								<li>Implementing cross-validation to ensure generalisation under limited labelled data
-									and evaluating model performance across multiple biomass targets</li>
-								<li>Optimising GPU usage through mixed-precision computation, controlled batch sizing,
-									release of intermediate tensors, and disabling gradient tracking during inference to
-									manage memory constraints efficiently</li>
-								<li>Applying post-processing adjustments to correct systematic prediction bias and
-									improve alignment with observed biomass distributions</li>
+								<li>Designing a preprocessing pipeline to preserve spatial and textural information
+									relevant to biomass estimation</li>
+								<li>Training and evaluating regression models across multiple data splits to assess
+									generalisation</li>
+								<li>Combining model outputs using weighted averaging across data splits to improve
+									robustness and reduce overfitting</li>
+								<li>Applying post-processing adjustments to correct systematic prediction bias</li>
 							</ul>
 
 							<p>
 								The project emphasised building a reliable prediction system under real-world
-								constraints, balancing
-								model performance, computational efficiency, and robustness to noisy data. Final outputs
-								were
-								structured for scientific evaluation and operational use, reflecting practical
-								requirements in
-								environmental monitoring and agricultural analytics.
+								constraints. Model performance depended not only on architecture, but on handling
+								noisy inputs, limited labels, and variability in the data distribution. The final
+								pipeline prioritised consistency and robustness over maximising performance on
+								individual splits.
 							</p>
+
 						</div>
 					</article>
 
 					<article class="project-card">
 						<div class="project-content">
 							<h3>Flood Simulation</h3>
-							<p class="project-meta">QGIS | Flood Modelling | Spatial Analysis</p>
+							<p class="project-meta">QGIS | Spatial Modelling | Risk Analysis</p>
 
 							<p>
-								Developed a geospatial flood modelling and risk assessment framework to analyse
-								inundation patterns
-								and evaluate mitigation strategies across flood-prone regions, including areas in
-								Queensland and St
-								Kilda. The project used GIS-based simulation to model flood behaviour under varying
-								severity
-								scenarios, treating flooding as a spatial system influenced by terrain, water flow, and
-								environmental
-								conditions rather than a static event.
+								Developed a geospatial flood modelling framework to analyse inundation patterns and
+								evaluate mitigation strategies across flood-prone regions, including areas in
+								Queensland and St Kilda. The project treats flooding as a dynamic system influenced
+								by terrain, water flow, and environmental conditions, rather than a static event.
 							</p>
 
 							<p>
-								Using tools such as ArcGIS, QGIS, GRASS GIS, and raster-based modelling techniques, the
-								analysis
-								simulated flood propagation across different landscapes and assessed how water levels
-								and flow paths
-								responded to structural interventions. Mitigation strategies including levees, temporary
-								flood
-								barriers, and sandbagging were incorporated into the model as physical constraints,
-								allowing
-								evaluation of their impact on flood extent, depth, and affected infrastructure.
+								Raster-based models were used to simulate flood propagation under varying severity
+								scenarios, with interventions such as levees, temporary barriers, and sandbagging
+								incorporated as constraints within the system. This allowed comparison of how
+								different mitigation strategies alter flood extent, depth, and infrastructure exposure.
 							</p>
 
 							<p><strong>Key components included:</strong></p>
 							<ul>
-								<li>Constructing raster-based flood models to simulate inundation under different
-									severity levels and environmental conditions</li>
-								<li>Incorporating intervention scenarios by modifying terrain and flow constraints to
-									represent flood protection measures</li>
-								<li>Analysing spatial impact in terms of affected regions, infrastructure exposure, and
-									changes in flood extent under each mitigation strategy</li>
-								<li>Conducting a long-term cost analysis over a 50-year horizon, incorporating factors
-									such as infrastructure durability, labour requirements, deployment logistics, and
-									estimated damage to buildings and interiors</li>
-								<li>Accounting for worsening flood conditions under climate change scenarios to evaluate
-									robustness of different mitigation approaches over time</li>
+								<li>Constructing spatial models to simulate inundation under different environmental
+									conditions</li>
+								<li>Incorporating intervention scenarios by modifying terrain and flow constraints</li>
+								<li>Analysing impact in terms of affected regions, infrastructure exposure, and changes
+									in flood extent</li>
+								<li>Conducting long-term cost analysis over a 50-year horizon, incorporating durability,
+									labour, and damage estimates</li>
 							</ul>
 
 							<p>
-								The project integrated spatial modelling with economic reasoning to identify optimal
-								flood mitigation
-								strategies, providing recommendations on both the type and placement of interventions
-								based on
-								simulated outcomes and cost-benefit considerations. The objective was not only to model
-								flood
-								behaviour, but to support decision-making under uncertainty in a real-world risk
-								management context.
+								The project integrates spatial modelling with economic reasoning to support
+								decision-making
+								under uncertainty. Results highlight that optimal mitigation strategies depend not only
+								on
+								initial effectiveness, but on long-term resilience under changing conditions.
 							</p>
 						</div>
 					</article>
@@ -449,13 +465,12 @@
 					<li class="style2">
 						<span class="icon solid fa-database"></span>
 						<strong>Data Analysis & Machine Learning</strong> pandas, NumPy, scikit-learn, PyTorch,
-						statsmodel
+						statsmodels
 					</li>
 					<li class="style3">
 						<span class="icon solid fa-shield-alt"></span>
-						<strong>Risk, Fraud & Security</strong> Anomaly detection, transaction analysis, network
-						investigation
-					</li>
+						<strong>Risk, Fraud & Security</strong> Signal reliability, anomaly detection, transaction
+						analysis, network behaviour
 					</li>
 					<li class="style4">
 						<span class="icon solid fa-chart-bar"></span>
@@ -468,7 +483,9 @@
 			<section id="contact" class="main special">
 				<header class="major">
 					<h2>Contact</h2>
-					<p>Open to internships and opportunities in data science, risk, and security.</p>
+					<p>Interested in roles involving risk, data, and decision-making under uncertainty.
+						Open to internships and technical opportunities.
+					</p>
 				</header>
 
 				<ul class="actions special">
@@ -484,7 +501,7 @@
 			<section>
 				<h2>LinkedIn</h2>
 				<ul class="icons">
-					<li><a href="#" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+					<li><a href="https://linkedin.com/in/sam-bajracharya-553391235/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
 					<!-- <li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li> -->
 				</ul>
 			</section>
