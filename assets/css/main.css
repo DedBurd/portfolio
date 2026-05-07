@@ -4027,3 +4027,42 @@ body.is-preload #header.alt .logo {
 #decision .project-card {
 	margin-bottom: 2em;
 }
+
+/* =========================
+   SKILLS SECTION LAYOUT
+   ========================= */
+
+   #skills .statistics {
+	display: flex;
+	flex-direction: column;
+	gap: 1.2em;
+	margin: 0;
+	padding: 0;
+}
+
+#skills .statistics li {
+	width: 100%;
+	min-height: unset;
+	padding: 2em 2.5em;
+	border-radius: 0.5em;
+	display: flex;
+	align-items: center;
+	text-align: left;
+}
+
+#skills .statistics li .icon {
+	font-size: 2.5em;
+	margin-right: 1em;
+	flex-shrink: 0;
+}
+
+#skills .statistics li strong {
+	display: block;
+	font-size: 1.25em;
+	margin-bottom: 0.2em;
+	font-weight: 700;
+}
+
+#skills .statistics li br {
+	display: none;
+}
