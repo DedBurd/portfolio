@@ -4076,3 +4076,15 @@ body.is-preload #header.alt .logo {
 #skills .statistics li br {
 	display: none;
 }
+
+/* Align skill icons and text consistently */
+
+#skills .statistics li .icon {
+	width: 3em;
+	min-width: 3em;
+
+	display: flex;
+	justify-content: center;
+
+	margin-right: 1.2em;
+}
