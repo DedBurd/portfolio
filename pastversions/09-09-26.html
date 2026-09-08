@@ -1,0 +1,665 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>Sam Bajracharya | Data Science & Risk</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<noscript>
+		<link rel="stylesheet" href="assets/css/noscript.css" />
+	</noscript>
+</head>
+
+<body class="is-preload">
+
+	<div id="wrapper">
+
+		<!-- Header -->
+		<header id="header" class="alt">
+			<!-- <span class="logo"><img src="images/logo.svg" alt="" /></span> -->
+			<h1>Sam Bajracharya</h1>
+			<p>Data Science - Systems, Risk and Behaviour<br />
+				Understanding how models and signals behave under change</p>
+		</header>
+
+		<!-- Nav -->
+		<nav id="nav">
+			<ul>
+				<li><a href="#intro" class="active">About</a></li>
+				<li><a href="#projects">Projects</a></li>
+				<li><a href="#skills">Skills</a></li>
+				<li><a href="#contact">Contact</a></li>
+			</ul>
+		</nav>
+
+		<!-- Main -->
+		<div id="main">
+
+			<!-- About -->
+			<section id="intro" class="main">
+				<div class="spotlight">
+					<div class="content">
+						<header class="major">
+							<h2>About</h2>
+						</header>
+						<p>
+							I am a Data Science student at the University of Melbourne with a focus on risk analysis,
+							fraud detection, and behavioural analytics. My work focuses on understanding how systems
+							fail, how systems can become unreliable, and how complex environments can be modelled under
+							changing conditions.
+						</p>
+						<p>
+						<p>
+							I am particularly interested in financial risk, fraud, and systems where individual
+							behaviour aggregates into measurable patterns. My focus is on understanding how these
+							patterns change over time and how reliable they are when conditions shift.
+						</p>
+						<p>
+							Across these projects, a consistent focus is understanding how models, signals, and systems
+							behave when underlying conditions change, and how this affects the reliability of decisions
+							based on them.
+						</p>
+						</p>
+					</div>
+					<!-- <span class="image"><img src="images/pic01.jpg" alt="" /></span> -->
+				</div>
+			</section>
+
+			<!-- Projects -->
+			<section id="projects" class="main">
+				<header class="major">
+					<h2>Projects</h2>
+				</header>
+
+				<div class="project-list">
+
+
+					<article class="project-card">
+						<div class="project-content">
+							<h3>Credit Risk Under Regime Change</h3>
+							<p class="project-meta">Python | Statistical Modelling | Time Series Evaluation</p>
+
+							<p>
+								This project investigates how credit risk models behave when the underlying
+								environment changes, focusing on the period surrounding the 2008 financial crisis.
+								Using loan-level data from LendingClub (2007–2015 loan dataset),
+								the objective is not only to predict default, but to understand how model outputs
+								degrade when relationships between borrower characteristics and outcomes shift
+								over time.
+							</p>
+
+							<p>
+								The dataset includes borrower and loan attributes such as credit grade, interest rate,
+								debt-to-income ratio, income, loan amount, and term. These variables reflect how risk
+								is assessed and priced within the system, linking model predictions to decisions around
+								which loans appear attractive and which represent elevated exposure.
+							</p>
+
+							<p>
+								Two model classes were implemented and compared. Logistic regression was used in both
+								regularised and unregularised forms to capture stable, aggregate relationships between
+								features and default risk. Random forest models were used to capture non-linear
+								interactions and local structure in the data, with hyperparameters tuned using Bayesian
+								optimisation and validated through learning curves.
+							</p>
+
+							<p>
+								Evaluation was conducted using AUC-ROC, accuracy, and calibration analysis. Rather than
+								relying on a static train-test split, a rolling window framework was used, where models
+								are trained on recent historical data (approximately 30 days) and evaluated on forward
+								horizons of one to five years. This allows performance to be tracked as conditions
+								evolve.
+							</p>
+
+							<p><strong>Key components include:</strong></p>
+							<ul>
+								<li>Designing a time-aware evaluation framework to assess model reliability under
+									distribution shift</li>
+								<li>Comparing linear and tree-based models in terms of predictive performance,
+									stability, and calibration</li>
+								<li>Evaluating how predicted default probabilities align with realised outcomes over
+									time</li>
+								<li>Tracking shifts in feature importance to identify changing drivers of risk</li>
+								<li>Assessing the tradeoff between model flexibility and robustness in non-stationary
+									environments</li>
+							</ul>
+
+							<p>
+								Results show a clear divergence in model behaviour. Random forests achieve strong
+								performance in stable, pre-crisis conditions, capturing complex interactions within
+								the data. However, performance deteriorates significantly, with reduced AUC and
+								instability in predicted probabilities following the 2008 shift,
+								with reduced generalisation and instability in predicted probabilities. Logistic
+								regression exhibits lower peak performance but maintains more consistent behaviour,
+								with smaller degradation and more reliable calibration.
+							</p>
+
+							<p>
+								This distinction is important because model outputs are often used as signals to guide
+								decisions. A model that performs well historically but fails under changing conditions
+								can produce misleading signals, leading to overconfidence in patterns that no longer
+								hold. In contrast, a more stable model may provide weaker signals in normal conditions,
+								but remain usable when the environment shifts.
+							</p>
+
+							<p>
+								The difference arises from how each model represents structure. Tree-based models learn
+								fine-grained partitions tied to historical patterns, which become misaligned when the
+								regime changes. Logistic regression imposes a global structure, capturing broader
+								relationships such as the link between leverage, pricing, and default risk, making it
+								more robust to shifts in underlying conditions.
+							</p>
+
+							<p>
+								Feature importance analysis further shows that key variables such as loan grade and
+								interest rate change in relevance over time. These features are themselves influenced by
+								the environment, meaning that the mapping from inputs to outcomes evolves, limiting the
+								effectiveness of models trained on past data.
+							</p>
+
+							<p>
+								The project highlights a central challenge in modelling real-world systems: predictive
+								performance depends not only on model choice, but on the stability of the environment.
+								In settings where relationships shift, robustness and consistency can matter more than
+								maximising accuracy under historical conditions.
+							</p>
+						</div>
+					</article>
+
+					<article class="project-card">
+						<div class="project-content">
+							<h3>Fraud Detection and Network Forensics (Ongoing)</h3>
+							<p class="project-meta">Python | Network Analysis | Behavioural Analytics</p>
+
+							<p>
+								Building a fraud detection and transaction network forensics system using the Elliptic
+								Bitcoin dataset,
+								which contains labelled transaction data (licit vs illicit) together with engineered
+								temporal and
+								structural features. The dataset is modelled as a directed transaction graph, where
+								nodes represent
+								entities and edges represent transfers, allowing analysis of how funds propagate through
+								the network
+								over time.
+							</p>
+
+							<p>
+								The project combines statistical modelling and network analysis to identify suspicious
+								behaviour at both
+								the node and subgraph level. Using Python with libraries such as pandas and NumPy for
+								data handling,
+								scikit-learn for classification models, and NetworkX for graph construction and
+								analysis, the work
+								focuses on detecting anomalous transaction patterns, clustering behaviour, and
+								structural signatures
+								associated with illicit activity.
+							</p>
+
+							<p><strong>Key objectives include:</strong></p>
+							<ul>
+								<li>Identifying high-risk nodes using supervised models trained on known illicit
+									transactions</li>
+								<li>Detecting anomalous patterns through feature distributions, temporal shifts, and
+									network centrality measures</li>
+								<li>Analysing transaction flows to uncover coordinated behaviour, layering patterns, and
+									potential laundering structures</li>
+								<li>Exploring how fraud manifests within local neighbourhoods of the graph rather than
+									isolated transactions</li>
+							</ul>
+
+							<p>
+								The expectation is that fraudulent activity will not appear as random noise, but as
+								structured
+								behaviour within the network, such as tightly connected clusters, unusual flow patterns,
+								or nodes with
+								disproportionate influence or connectivity. The project aims to bridge statistical
+								inference with
+								graph-based reasoning to better understand how illicit financial behaviour emerges and
+								propagates.
+							</p>
+
+							<p>
+								Preliminary analysis suggests that illicit activity is not uniformly distributed across
+								the network,
+								but instead appears in locally dense regions characterised by repeated interactions and
+								elevated
+								connectivity. Certain nodes exhibit disproportionately high centrality relative to their
+								transaction
+								volume, indicating potential intermediary roles in fund movement. Temporal patterns also
+								show bursts
+								of activity within short intervals, consistent with layering or rapid redistribution
+								behaviour rather
+								than organic transaction flow.
+							</p>
+						</div>
+					</article>
+
+					<article class="project-card">
+						<div class="project-content">
+							<h3>Quantum Computing in Bioinformatics (Internship)</h3>
+							<p class="project-meta">Qiskit | Optimisation | Scientific Computing | Research</p>
+
+							<p>
+								Completed a research internship at the Walter and Eliza Hall Institute of Medical
+								Research,
+								focusing on improving the usability and correctness of a quantum protein-folding model
+								implemented in Qiskit. The work addressed technical and structural issues in a codebase
+								handed down across multiple interns, where poor documentation and incorrect
+								parameterisation
+								limited practical use of the model.
+							</p>
+
+							<p>
+								The onboarding process was redesigned by replacing an extensive set of academic readings
+								with a structured glossary and streamlined documentation, allowing new contributors to
+								understand key concepts and begin working with the model significantly faster. In
+								parallel,
+								the implementation was refactored through detailed inline commentary, clarifying
+								theoretical
+								background, modelling assumptions, and execution flow directly within the code.
+							</p>
+
+							<p><strong>Key components included:</strong></p>
+							<ul>
+								<li>Designing a simplified onboarding pathway by consolidating essential concepts into a
+									concise reference document, reducing reliance on external academic sources</li>
+								<li>Refactoring a Jupyter notebook implementation with structured inline documentation
+									to improve readability and accessibility for users without prior quantum computing
+									experience</li>
+								<li>Diagnosing failures in the Hamiltonian formulation, where constraint penalties (e.g.
+									backtracking and long-range folding) were incorrectly scaled, preventing meaningful
+									interaction between amino acids</li>
+								<li>Rescaling constraint terms to restore valid interaction dynamics and enable the
+									optimiser to explore physically meaningful folding configurations</li>
+								<li>Replacing gradient-based optimisation with a non-derivative method better suited to
+									the discrete and non-linear structure of the problem space</li>
+								<li>Testing the corrected model on simulated configurations to confirm functional
+									behaviour while identifying remaining computational inefficiencies</li>
+								<li>Migrating the project from a Google Drive notebook to a structured GitHub
+									repository, introducing version control and improving reproducibility</li>
+								<li>Producing a comprehensive technical report and handover documentation to enable
+									future contributors to quickly understand and extend the model</li>
+							</ul>
+
+							<p>
+								The project emphasised practical problem-solving in complex optimisation systems,
+								combining
+								debugging, model correction, and documentation improvements to transform an unusable
+								research
+								prototype into a functional and maintainable framework for future work.
+							</p>
+						</div>
+					</article>
+
+					<article class="project-card">
+						<div class="project-content">
+							<h3>Where2 (Co-Founder &amp; Developer)</h3>
+							<p class="project-meta">React Native | Distributed Systems | Real-Time State Management</p>
+
+							<p>
+								Co-founded and co-developing Where2, a mobile application designed to support group
+								coordination through shared itineraries, messaging, and collaborative decision-making.
+								The project originated within the Melbourne Entrepreneurial Centre startup program,
+								where I joined as the primary technical contributor, taking ownership of system design
+								and implementation as the concept progressed from early-stage idea to a working product.
+							</p>
+
+							<p>
+								Designed and implemented a multi-user system where plans, locations, and user
+								interactions
+								are synchronised in real time across devices. The application is built in React Native,
+								with a backend architecture using Supabase to manage persistent state, authentication,
+								and real-time updates across distributed users.
+							</p>
+
+							<p>
+								The system has evolved into a multi-component application supporting user accounts,
+								following relationships, location-based planning, and real-time updates across shared
+								itineraries. Core functionality includes dynamic itinerary generation, map-based
+								visualisation of locations and posts, and automated handling of metadata such as update
+								timestamps and time zones. These components are integrated through a structured backend
+								architecture, with persistent storage and access control managed through relational
+								database design.
+							</p>
+
+							<p>
+								The central technical challenge in the system is maintaining consistency of shared state
+								across multiple users interacting concurrently. Actions such as editing plans, adding
+								locations, or sending messages must propagate in real time while preserving a coherent
+								view of the itinerary for all participants. This requires careful handling of
+								synchronisation, conflict resolution, and access control to ensure that updates remain
+								consistent under concurrent modification.
+							</p>
+
+							<p><strong>Key components included:</strong></p>
+							<ul>
+								<li>Designing a relational database schema to model users, plans, locations, and social
+									relationships, including following systems and access control for shared plans</li>
+								<li>Implementing backend services for user identity, authentication, and state
+									management across concurrent users interacting within the same plan</li>
+								<li>Handling real-time synchronisation of plan updates, messaging, and location data
+									across multiple clients, ensuring consistency of shared state</li>
+								<li>Structuring application logic to manage user interactions such as invitations,
+									following relationships, and collaborative editing of itineraries</li>
+								<li>Developing front-end interfaces in React Native based on iterative Figma prototypes,
+									with emphasis on clarity of interaction and usability in multi-user workflows</li>
+							</ul>
+
+							<p>
+								Development has moved from prototyping toward release, requiring a shift from feature
+								implementation to system reliability. This includes refining service architecture,
+								ensuring consistency of shared state across users, and validating that interactions
+								behave predictably under real usage. The focus is not only on building functionality,
+								but on delivering a system that remains stable as complexity and user interaction scale.
+							</p>
+						</div>
+					</article>
+
+
+					<article class="project-card">
+						<div class="project-content">
+							<h3>CSIRO Image2Biomass Datathon</h3>
+							<p class="project-meta">Python | Deep Learning | Prediction Under Limited Data</p>
+
+							<p>
+								Developed an end-to-end prediction pipeline to estimate pasture biomass from
+								high-resolution aerial imagery as part of the CSIRO Image2Biomass datathon.
+								The task involved translating large, unstructured visual data into quantitative
+								estimates across multiple targets, including green, dry, and dead plant matter.
+							</p>
+
+							<p>
+								The primary challenge was working under limited labelled data and high variability
+								in visual input. Images differed in scale, lighting, and spatial composition,
+								requiring careful preprocessing to preserve meaningful structure while ensuring
+								compatibility with model inputs.
+							</p>
+
+							<p>
+								A preprocessing pipeline was implemented to convert wide-format aerial images into
+								consistent square inputs, applying normalisation and standardisation to stabilise
+								feature extraction. A self-supervised Vision Transformer (DINO) was used as a feature
+								extractor, with representations adapted for multi-output regression using
+								PyTorch and optimised via mean squared error loss. This approach
+								leveraged pre-trained representations to improve performance under constrained data
+								conditions.
+							</p>
+
+							<p><strong>Key components included:</strong></p>
+							<ul>
+								<li>Designing a preprocessing pipeline to preserve spatial and textural information
+									relevant to biomass estimation</li>
+								<li>Training and evaluating regression models across multiple data splits to assess
+									generalisation</li>
+								<li>Combining model outputs using weighted averaging across data splits to improve
+									robustness and reduce overfitting</li>
+								<li>Applying post-processing adjustments to correct systematic prediction bias</li>
+							</ul>
+
+							<p>
+								The project emphasised building a reliable prediction system under real-world
+								constraints. Model performance depended not only on architecture, but on handling
+								noisy inputs, limited labels, and variability in the data distribution. The final
+								pipeline prioritised consistency and robustness over maximising performance on
+								individual splits.
+							</p>
+
+						</div>
+					</article>
+
+					<article class="project-card">
+						<div class="project-content">
+							<h3>Flood Simulation</h3>
+							<p class="project-meta">QGIS | Spatial Modelling | Risk Analysis</p>
+
+							<p>
+								Developed a geospatial flood modelling framework to analyse inundation patterns and
+								evaluate mitigation strategies across flood-prone regions, including areas in
+								Queensland and St Kilda. The project treats flooding as a dynamic system influenced
+								by terrain, water flow, and environmental conditions, rather than a static event.
+							</p>
+
+							<p>
+								Raster-based models were used to simulate flood propagation under varying severity
+								scenarios, with interventions such as levees, temporary barriers, and sandbagging
+								incorporated as constraints within the system. This allowed comparison of how
+								different mitigation strategies alter flood extent, depth, and infrastructure exposure.
+							</p>
+
+							<p><strong>Key components included:</strong></p>
+							<ul>
+								<li>Constructing spatial models to simulate inundation under different environmental
+									conditions</li>
+								<li>Incorporating intervention scenarios by modifying terrain and flow constraints</li>
+								<li>Analysing impact in terms of affected regions, infrastructure exposure, and changes
+									in flood extent</li>
+								<li>Conducting long-term cost analysis over a 50-year horizon, incorporating durability,
+									labour, and damage estimates</li>
+							</ul>
+
+							<p>
+								The project integrates spatial modelling with economic reasoning to support
+								decision-making
+								under uncertainty. Results highlight that optimal mitigation strategies depend not only
+								on
+								initial effectiveness, but on long-term resilience under changing conditions.
+							</p>
+						</div>
+					</article>
+
+				</div>
+			</section>
+
+			<!-- Decision-Making & Communication -->
+			<section id="decision" class="main">
+				<header class="major">
+					<h2>Decision-Making & Communication</h2>
+				</header>
+
+				<div class="project-list">
+
+					<article class="project-card">
+						<div class="project-content">
+							<h3>Academic Misconduct Committee</h3>
+							<p class="project-meta">
+								University Governance | Evidence Evaluation | Institutional Decision-Making
+							</p>
+
+							<p>
+								Served as a student representative on the University of Melbourne Academic Misconduct
+								Committee, participating in hearings relating to plagiarism, contract cheating,
+								unauthorised collaboration, and misuse of AI tools.
+							</p>
+
+							<p>
+								The role involved reviewing sensitive and confidential case material,
+								identifying inconsistencies in explanations, evaluating procedural fairness,
+								and contributing to decisions with significant academic and disciplinary
+								consequences. Cases often involved incomplete or conflicting information,
+								requiring careful judgement under uncertainty rather than simple rule
+								application.
+							</p>
+
+							<p>
+								Working within a confidential disciplinary process required maintaining
+								discretion while handling sensitive personal information and evidence.
+								The experience reinforced the importance of evidence-based reasoning,
+								consistency of judgement, and understanding how individual behaviour
+								interacts with institutional systems, incentives, and accountability
+								structures.
+							</p>
+						</div>
+					</article>
+
+					<article class="project-card">
+						<div class="project-content">
+							<h3>Data Science Student Society & Responsible AI Development</h3>
+							<p class="project-meta">
+								Operational Coordination | AI Governance | Communication
+							</p>
+
+							<p>
+								Contributed to multiple student-led initiatives focused on industry engagement,
+								AI systems, and responsible technology use through the Data Science Students Society
+								(DSCubed) and Responsible AI Development.
+							</p>
+
+							<p>
+								Played a leading role in coordinating Industry Networking Night,
+								managing communication between venue staff, student organisations, and external
+								participants to organise logistics including catering, security, AV systems,
+								seating, lighting, and event layout.
+							</p>
+
+							<p>
+								Also contributed to the DSCubed AI Projects Team, where work focused on improving
+								AI-assisted onboarding and hiring processes used internally by the organisation.
+								This included thinking about how AI systems could support operational workflows
+								while remaining understandable and reliable for users.
+							</p>
+
+							<p>
+								Through Responsible AI Development and Green Impact initiatives, participated in
+								discussions and evaluations surrounding responsible AI use, confidentiality risks,
+								energy consumption, and broader social impacts of large-scale AI deployment.
+							</p>
+						</div>
+					</article>
+
+					<article class="project-card">
+						<div class="project-content">
+							<h3>Elevate Education</h3>
+							<p class="project-meta">
+								Adaptive Communication | Audience Engagement | Live Presentation Delivery
+							</p>
+
+							<p>
+								Delivered academic workshops and study-skills seminars to high school
+								students across metropolitan and regional Victoria through Elevate
+								Education. The role focused not only on presenting information, but on
+								maintaining engagement and adapting delivery style dynamically across
+								different classroom environments.
+							</p>
+
+							<p>
+								Presentations required continual adjustment based on audience behaviour,
+								energy levels, and classroom dynamics. Sessions often involved balancing
+								humour, authority, pacing, and audience participation in real time,
+								particularly in environments where students were disengaged, fatigued,
+								or difficult to involve. Delivery style, tone, and interaction patterns
+								had to be adapted continuously depending on how different groups
+								responded.
+							</p>
+
+							<p>
+								The role also required careful control of presentation mechanics such as
+								voice projection, timing, room awareness, and conversational flow,
+								particularly across classrooms with different acoustics, layouts, and
+								group behaviour. Considerable preparation went into refining examples,
+								delivery structure, and transitions to ensure material remained engaging,
+								clear, and relatable to students from different backgrounds.
+							</p>
+
+							<p>
+								The experience reinforced the importance of behavioural awareness,
+								adaptive communication, and maintaining clarity and engagement under
+								unpredictable real-world conditions.
+							</p>
+						</div>
+					</article>
+
+				</div>
+			</section>
+
+			<!-- Skills -->
+			<section id="skills" class="main special">
+				<header class="major">
+					<h2>Skills</h2>
+				</header>
+
+				<ul class="statistics">
+
+					<li class="style1">
+						<span class="icon solid fa-code"></span>
+						<div>
+							<strong>Systems & Infrastructure</strong>
+							Python, C, SQL, React Native, Supabase, distributed systems, synchronisation workflows
+						</div>
+					</li>
+
+					<li class="style2">
+						<span class="icon solid fa-database"></span>
+						<div>
+							<strong>Statistical Modelling & Machine Learning</strong>
+							pandas, NumPy, scikit-learn, PyTorch, statsmodels, calibration and time-aware evaluation
+						</div>
+					</li>
+
+					<li class="style3">
+						<span class="icon solid fa-shield-alt"></span>
+						<div>
+							<strong>Risk, Fraud & Behavioural Systems</strong>
+							Signal reliability, anomaly detection, transaction analysis, network and behavioural analysis
+						</div>
+					</li>
+
+					<li class="style4">
+						<span class="icon solid fa-chart-bar"></span>
+						<div>
+							<strong>Visualisation & Communication</strong>
+							Tableau, Power BI, matplotlib, analytical writing, adaptive presentation delivery
+						</div>
+					</li>
+
+				</ul>
+			</section>
+
+			<!-- Contact -->
+			<section id="contact" class="main special">
+				<header class="major">
+					<h2>Contact</h2>
+					<p>Interested in roles involving risk, data, and decision-making under uncertainty.
+						Particularly focused on problems where model outputs must be interpreted and acted on
+						under changing conditions.
+					</p>
+				</header>
+
+				<ul class="actions special">
+					<li><a href="mailto:sbajracharyaj@gmail.com" class="button primary">Email Me</a></li>
+					<!-- <li><a href="https://github.com" class="button">GitHub</a></li> -->
+				</ul>
+			</section>
+
+		</div>
+
+		<!-- Footer -->
+		<footer id="footer">
+			<section>
+				<h2>LinkedIn</h2>
+				<ul class="icons">
+					<li><a href="https://linkedin.com/in/sam-bajracharya-553391235/"
+							class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+					<!-- <li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li> -->
+				</ul>
+			</section>
+
+			<p class="copyright">
+				&copy; Sam Bajracharya.
+			</p>
+		</footer>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
