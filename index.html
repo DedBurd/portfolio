@@ -157,61 +157,35 @@
 							<p class="project-meta">React Native | Distributed Systems | Real-Time State Management</p>
 
 							<p>
-								Co-founded and co-developing Where2, a mobile application designed to support group
-								coordination through shared itineraries, messaging, and collaborative decision-making.
-								The project originated within the Melbourne Entrepreneurial Centre startup program,
-								where I joined as the primary technical contributor, taking ownership of system design
-								and implementation as the concept progressed from early-stage idea to a working product.
+								Co-founded and developed Where2, a mobile application for group coordination through shared itineraries, messaging, location discovery, and collaborative planning. The project began through the Melbourne Entrepreneurial Centre startup program and progressed from an early concept to its first public launch.
 							</p>
 
 							<p>
-								Designed and implemented a multi-user system where plans, locations, and user
-								interactions
-								are synchronised in real time across devices. The application is built in React Native,
-								with a backend architecture using Supabase to manage persistent state, authentication,
-								and real-time updates across distributed users.
+								Worked primarily on the technical side of the product, including backend design, database structure, application logic, and real-time functionality. The system supported shared plans, location data, user accounts, access control, and synchronised updates across multiple users.
 							</p>
 
 							<p>
-								The system has evolved into a multi-component application supporting user accounts,
-								following relationships, location-based planning, and real-time updates across shared
-								itineraries. Core functionality includes dynamic itinerary generation, map-based
-								visualisation of locations and posts, and automated handling of metadata such as update
-								timestamps and time zones. These components are integrated through a structured backend
-								architecture, with persistent storage and access control managed through relational
-								database design.
-							</p>
-
-							<p>
-								The central technical challenge in the system is maintaining consistency of shared state
-								across multiple users interacting concurrently. Actions such as editing plans, adding
-								locations, or sending messages must propagate in real time while preserving a coherent
-								view of the itinerary for all participants. This requires careful handling of
-								synchronisation, conflict resolution, and access control to ensure that updates remain
-								consistent under concurrent modification.
+								One of the most significant lessons from the project came from the architecture itself. As the application grew, the original implementation became increasingly difficult to maintain and extend. Much of the system was eventually rebuilt around a clearer service layer between the application and the database. This reduced direct coupling to the underlying data store and made later changes, including database migration and backend restructuring, considerably easier.
 							</p>
 
 							<p><strong>Key components included:</strong></p>
 							<ul>
-								<li>Designing a relational database schema to model users, plans, locations, and social
-									relationships, including following systems and access control for shared plans</li>
-								<li>Implementing backend services for user identity, authentication, and state
-									management across concurrent users interacting within the same plan</li>
-								<li>Handling real-time synchronisation of plan updates, messaging, and location data
-									across multiple clients, ensuring consistency of shared state</li>
-								<li>Structuring application logic to manage user interactions such as invitations,
-									following relationships, and collaborative editing of itineraries</li>
-								<li>Developing front-end interfaces in React Native based on iterative Figma prototypes,
-									with emphasis on clarity of interaction and usability in multi-user workflows</li>
+								<li>Designing relational data models for users, plans, locations, and shared application state</li>
+								<li>Implementing authentication, access control, and real-time synchronisation across multiple users</li>
+								<li>Contributing to a major architectural rebuild after limitations in the original implementation became difficult to manage</li>
+								<li>Introducing a service layer to separate application logic from database-specific implementation</li>
+								<li>DSupporting the product through its first launch and subsequent reliability-focused development</li>
+								<li>Developing front-end functionality in React Native from iterative Figma designs</li>
 							</ul>
 
 							<p>
-								Development has moved from prototyping toward release, requiring a shift from feature
-								implementation to system reliability. This includes refining service architecture,
-								ensuring consistency of shared state across users, and validating that interactions
-								behave predictably under real usage. The focus is not only on building functionality,
-								but on delivering a system that remains stable as complexity and user interaction scale.
+								Toward the end of the project, work also focused on a place-field reliability system for evaluating competing claims about location data such as phone numbers, websites, descriptions, and tags. The design treated each source as an observation, combined corroborating evidence into confidence scores, and separated raw observations from derived confidence values and live write-back behaviour.
 							</p>
+							
+							<p>
+								The project reinforced the importance of software architecture as a practical constraint on development. The most difficult problems were rarely isolated implementation issues. They tended to emerge from how components were structured, how tightly they depended on one another, and how difficult those dependencies made later change.
+							</p>
+
 						</div>
 					</article>
 
